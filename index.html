@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="h-w"></div>
+		<!-- <script src="./src/hello-world.js"></script> -->
+		<!-- <script src="./src/index.js"></script> -->
+		<script src="./dist/bundle.js"></script>
+	</body>
+</html>
+
+<!-- 
+
+    1- in this case index.js depends on hello-world.js(manually)
+    2- web pack will create a correct dependency graph automatically
+    3- we need webpack & webpack-cli as dev-dependency to do the job...
+    4- creating webpack.config.js
+    5- comment all <script src="..."></script> lines
+    6- write : <script src="./dist/bundle.js"></script>
+    in webpack.config.js:
+        7- const path = require('path');// for exact path making
+        8- module.exports = {};
+        9- entry: './src/index.js',// the main JS file
+        10- output: {
+                filename: 'bundle.js', // out put file
+                path: path.resolve(__dirname, 'dist'),  // out put directory
+            },
+        11- mode: 'none', // which mode? production or developememt?
+    12- export all js dependency files,
+        like "./src/hello-world.js" in ES6 way: export default ...
+    13- import all js dependency files,
+        into main file "./src/index.js" in ES6 way: import ...
+    14- create a script in package.json about webpack:
+        "web-pack-build-test": "webpack"
+    15- run the command : npm run web-pack-build-test
+    -----I> Done!!!!
+
+-->
